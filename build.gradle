@@ -8,7 +8,7 @@ plugins {
 group = 'com'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
-
+def dockerHubName = 'agnfal'
 
 configurations {
     compileOnly {
@@ -31,7 +31,10 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
 }
-
+docker{
+    name "${dockerHubName}" + "/" + "${project.name}:${project.version}"
+    files 'app.jar'
+}
 test {
     useJUnitPlatform()
 }
