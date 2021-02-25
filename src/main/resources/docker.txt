@@ -1,8 +1,4 @@
-FROM adoptopenjdk/openjdk11:latest
-ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
-EXPOSE 8111
+docker build --build-arg JAR_FILE=build/libs/quotes-0.0.1-SNAPSHOT.jar -t agnfal/quotesapp .
 
 
 docker run --name my_postgres -e POSTGRES_USER=kodilla -e POSTGRES_PASSWORD=kodilla -e POSTGRES_DB=kodilla-quotes -d postgres
