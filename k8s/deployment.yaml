@@ -15,7 +15,7 @@ spec:
         app: quotes-k8s
     spec:
       containers:
-        - name: hello-k8s
+        - name: quotes-k8s
           image: agnfal/quotesapp:2.0
           ports:
             - containerPort: 8113
